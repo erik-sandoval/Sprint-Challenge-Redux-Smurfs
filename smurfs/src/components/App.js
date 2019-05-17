@@ -6,6 +6,7 @@ import './App.css';
 
 import AddSmurf from './AddSmurf';
 import { getSmurfs } from '../actions';
+import {deleteSmurf} from '../actions'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -16,6 +17,11 @@ class App extends Component {
   componentDidMount() {
     this.props.getSmurfs()
   }
+
+  deleteSmurf= smurf => {
+    this.props.deleteSmurf(smurf)
+  }
+
   render() {
     console.log(this.props)
     if (this.props.isFetching) {
@@ -34,6 +40,7 @@ class App extends Component {
               <h1>{smurf.name}</h1>
               <h3>Age: {smurf.age}</h3>
               <h3>Height: {smurf.height}</h3>
+              <button onClick={() => this.deleteSmurf(smurf)}>Delete</button>
             </div>
           ))}
         </Router>
@@ -50,4 +57,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getSmurfs })(App);
+export default connect(mapStateToProps, { getSmurfs, deleteSmurf })(App);
