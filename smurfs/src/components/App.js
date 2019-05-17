@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import './App.css';
-import { getSmurfs } from '../actions'
+
 import AddSmurf from './AddSmurf';
+import { getSmurfs } from '../actions';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -16,6 +17,7 @@ class App extends Component {
     this.props.getSmurfs()
   }
   render() {
+    console.log(this.props)
     if (this.props.isFetching) {
       return <h1>LOADING</h1>
     }
@@ -41,9 +43,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    smurfs: state.smurfs,
-    isFetching: state.fetchingSmurfs
+    smurfs: state.getSmurfs.smurfs,
+    isFetching: state.getSmurfs.fetchingSmurfs
   }
 }
 
