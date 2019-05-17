@@ -4,6 +4,7 @@ import { addReducer } from './addReducer'
 import { getReducer } from './getReducer'
 import { deleteReducer } from './deleteReducer'
 
+
 const rootReducer = combineReducers({
   getSmurfs: getReducer,
   addSmurfs: addReducer,
@@ -11,3 +12,4 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
+

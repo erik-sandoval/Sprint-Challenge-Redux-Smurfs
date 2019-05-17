@@ -1,3 +1,4 @@
+
 export {
   FETCHING_SMURFS,
   FETCHING_SUCCESSFUL,
@@ -18,6 +19,7 @@ export {
   DEL_FAILED,
   deleteSmurf,
 } from './deleteSmurf'
+
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
